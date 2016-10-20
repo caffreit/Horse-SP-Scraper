@@ -1,12 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Aug 19 11:30:20 2015
-
-@author: Administrator
-"""
-
-# -*- coding: utf-8 -*-
-"""
 Created on Mon Aug 17 15:46:30 2015
 
 @author: Administrator
