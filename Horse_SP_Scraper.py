@@ -24,16 +24,15 @@ from tempfile import TemporaryFile
 book = xlwt.Workbook()
 sheet1 = book.add_sheet('sheet1')
 
+## Race results are listed alphabetically by course
+
 race_url_list = []
 
 alphabet = ('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z')
 for letter in alphabet:
     results_url = "http://www.irishracing.com/result-index?starting-with=" + letter
-
     r  = requests.get(results_url)
-
     data = r.text
-
     soup = BeautifulSoup(data)
 
     links = []
@@ -78,10 +77,10 @@ if row_number < len(race_url_list):
                 c = float(fractions.Fraction(b))
             except ValueError:
                 try:        
-                    b = b[:-3]   #to get rid of fav at end of odds
+                    b = b[:-3]   #to get rid of "fav" at end of the starting price
                     c = float(fractions.Fraction(b))
                 except ValueError:
-                    b = b[:-1]   #to get rid of Jfav
+                    b = b[:-1]   #to get rid of "Jfav"
                     c = float(fractions.Fraction(b))
             decimal_list.append(c)
         
